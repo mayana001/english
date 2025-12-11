@@ -1,0 +1,7 @@
+{
+  "name": "StudyMate",
+  "description": "A smart, bilingual learning tool for students who want to master mathematics. It offers AI-powered explanations and practice problems in both Norwegian and English to make learning math more interactive and effective. (Et smart, tospråklig læringsverktøy for elever som vil mestre matematikk.)",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

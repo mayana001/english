@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MatteHjelp | MathMate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base Variables (Blue Theme Default) */
+        :root {
+            --primary-rgb: 66, 85, 255;      /* #4255ff */
+            --secondary-rgb: 255, 205, 31;   /* #ffcd1f */
+            --bg-rgb: 246, 247, 251;         /* #f6f7fb */
+            --card-bg-rgb: 255, 255, 255;
+            --text-rgb: 45, 55, 72;
+            --font-size-base: 16px;
+            --border-radius: 0.75rem; /* 12px */
+            --font-family: 'Nunito', sans-serif;
+        }
+
+        /* Legacy/Simple Themes */
+        .theme-blue {
+            --primary-rgb: 66, 85, 255;
+            --secondary-rgb: 255, 205, 31;
+            --bg-rgb: 246, 247, 251;
+            --card-bg-rgb: 255, 255, 255;
+            --text-rgb: 45, 55, 72;
+            --border-radius: 0.75rem;
+            --font-family: 'Nunito', sans-serif;
+        }
+
+        .theme-green {
+            --primary-rgb: 56, 161, 105;
+            --secondary-rgb: 255, 205, 31;
+            --bg-rgb: 240, 255, 244;
+            --card-bg-rgb: 255, 255, 255;
+            --text-rgb: 28, 69, 50;
+        }
+
+        .theme-purple {
+            --primary-rgb: 159, 122, 234;
+            --secondary-rgb: 250, 219, 95;
+            --bg-rgb: 250, 245, 255;
+            --card-bg-rgb: 255, 255, 255;
+            --text-rgb: 68, 51, 122;
+        }
+
+        .theme-dark {
+            --primary-rgb: 102, 126, 234;
+            --secondary-rgb: 255, 205, 31;
+            --bg-rgb: 26, 32, 44;
+            --card-bg-rgb: 45, 55, 72;
+            --text-rgb: 247, 250, 252;
+            --border-radius: 0.75rem;
+        }
+
+        .theme-contrast {
+            --primary-rgb: 0, 0, 0;
+            --secondary-rgb: 255, 255, 0;
+            --bg-rgb: 255, 255, 255;
+            --card-bg-rgb: 255, 255, 255;
+            --text-rgb: 0, 0, 0;
+        }
+        
+        /* New Advanced Presets */
+        .theme-modern_light {
+            --primary-rgb: 74, 144, 226;    /* #4A90E2 */
+            --secondary-rgb: 166, 200, 255; /* #A6C8FF */
+            --bg-rgb: 255, 255, 255;        /* #FFFFFF */
+            --card-bg-rgb: 245, 247, 250;   /* #F5F7FA */
+            --text-rgb: 28, 28, 30;         /* #1C1C1E */
+            --border-radius: 0.75rem;
+            --font-family: 'Inter', sans-serif;
+        }
+        
+        .theme-deep_dark {
+            --primary-rgb: 0, 209, 255;     /* #00D1FF */
+            --secondary-rgb: 0, 122, 153;   /* #007A99 */
+            --bg-rgb: 0, 0, 0;              /* #000000 */
+            --card-bg-rgb: 15, 15, 16;      /* #0F0F10 */
+            --text-rgb: 230, 230, 230;      /* #E6E6E6 */
+            --border-radius: 0.5rem;
+            --font-family: 'Inter', sans-serif;
+        }
+        
+        .theme-ocean_blue {
+            --primary-rgb: 0, 108, 190;     /* #006CBE */
+            --secondary-rgb: 74, 178, 255;  /* #4AB2FF */
+            --bg-rgb: 230, 244, 255;        /* #E6F4FF */
+            --card-bg-rgb: 241, 249, 255;   /* #F1F9FF */
+            --text-rgb: 14, 26, 42;         /* #0E1A2A */
+            --border-radius: 1rem;
+            --font-family: 'Nunito', sans-serif;
+        }
+
+        .theme-sunset_warm {
+            --primary-rgb: 255, 106, 61;    /* #FF6A3D */
+            --secondary-rgb: 255, 158, 107; /* #FF9E6B */
+            --bg-rgb: 255, 244, 232;        /* #FFF4E8 */
+            --card-bg-rgb: 255, 233, 214;   /* #FFE9D6 */
+            --text-rgb: 74, 43, 28;         /* #4A2B1C */
+            --border-radius: 1.25rem;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        .theme-cyber_neon {
+            --primary-rgb: 139, 0, 255;     /* #8B00FF */
+            --secondary-rgb: 0, 255, 234;   /* #00FFEA */
+            --bg-rgb: 10, 10, 15;           /* #0A0A0F */
+            --card-bg-rgb: 19, 19, 26;      /* #13131A */
+            --text-rgb: 242, 242, 242;      /* #F2F2F2 */
+            --border-radius: 0.25rem;
+            --font-family: 'Inter', sans-serif;
+        }
+
+        /* Apply variables */
+        body {
+            background-color: rgb(var(--bg-rgb));
+            color: rgb(var(--text-rgb));
+            font-size: var(--font-size-base);
+            font-family: var(--font-family);
+        }
+        
+        /* Overrides for components that use rounded classes */
+        /* Note: Tailwind rounded-* utilities are static, but we can override or use inline styles for dynamic radius */
+        /* For consistency in the customizer, we'll try to map common rounded classes if possible, 
+           or rely on the fact that the customizer applies CSS vars and we use 'rounded-[var(--border-radius)]' 
+           or simply use inline styles for major containers.
+           However, for presets, the CSS var --border-radius is set. 
+           We can create a utility class that uses it.
+        */
+        .rounded-theme {
+            border-radius: var(--border-radius) !important;
+        }
+        
+        /* Custom Scrollbar for Webkit-based browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(var(--primary-rgb), 0.3);
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(var(--primary-rgb), 0.6);
+        }
+
+        /* Custom Scrollbar for Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(var(--primary-rgb), 0.3) transparent;
+        }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class', 
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['var(--font-family)', 'Nunito', 'sans-serif'], // Use dynamic font variable
+              display: ['var(--font-family)', 'Poppins', 'sans-serif'], // Use dynamic font variable
+            },
+            borderRadius: {
+                // We can't easily dynamically inject into Tailwind's static utility map for every utility
+                // But we can add a specific one
+                'theme': 'var(--border-radius)',
+            },
+            colors: {
+              primary: {
+                DEFAULT: 'rgb(var(--primary-rgb) / <alpha-value>)',
+                50: 'rgb(var(--primary-rgb) / 0.05)',
+                100: 'rgb(var(--primary-rgb) / 0.1)',
+                200: 'rgb(var(--primary-rgb) / 0.2)',
+                300: 'rgb(var(--primary-rgb) / 0.3)',
+                400: 'rgb(var(--primary-rgb) / 0.4)',
+                500: 'rgb(var(--primary-rgb) / 0.5)',
+                600: 'rgb(var(--primary-rgb) / 0.6)',
+                700: 'rgb(var(--primary-rgb) / 0.7)',
+                800: 'rgb(var(--primary-rgb) / 0.8)',
+                900: 'rgb(var(--primary-rgb) / 0.9)',
+                950: 'rgb(var(--primary-rgb) / 0.95)',
+              },
+              secondary: 'rgb(var(--secondary-rgb) / <alpha-value>)',
+              background: 'rgb(var(--bg-rgb) / <alpha-value>)',
+              // Semantic Colors for Dark Mode Support via Tailwind utility if needed
+              dark: {
+                primary: 'rgb(var(--primary-rgb) / 0.8)', 
+                secondary: '#31211A', 
+                background: 'rgb(var(--bg-rgb) / 1)',
+                surface: 'rgb(var(--card-bg-rgb) / 1)'
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-background transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
