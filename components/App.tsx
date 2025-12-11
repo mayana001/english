@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { Language, AppTheme, UserProfile, AppPage } from '../types';
-import { Header } from './components/Header';
-import { AuthPage } from './components/AuthPage';
-import { HomePage } from './components/HomePage';
-import { StudySetsPage } from './components/StudySetsPage';
-import { StudyGuideGenerator } from './components/StudyGuideGenerator';
-import { VoiceStudyGenerator } from './components/VoiceStudyGenerator';
-import { ProfilePage } from './components/ProfilePage';
-import { NavBar } from './components/NavBar';
-import { SettingsPanel } from './components/SettingsPanel';
+import { Header } from './Header';
+import { AuthPage } from './AuthPage';
+import { HomePage } from './HomePage';
+import { StudySetsPage } from './StudySetsPage';
+import { StudyGuideGenerator } from './StudyGuideGenerator';
+import { VoiceStudyGenerator } from './VoiceStudyGenerator';
+import { ProfilePage } from './ProfilePage';
+import { NavBar } from './NavBar';
+import { SettingsPanel } from './SettingsPanel';
 
 const APP_STORAGE_KEY = 'studymate_user_profile_v5';
 
