@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Language, AppTheme, UserProfile, AppPage } from './types';
+import { Language, AppTheme, UserProfile, AppPage } from '../types';
 import { Header } from './components/Header';
 import { AuthPage } from './components/AuthPage';
 import { HomePage } from './components/HomePage';
